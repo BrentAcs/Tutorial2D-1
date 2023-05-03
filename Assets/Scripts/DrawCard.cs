@@ -14,7 +14,6 @@ public class DrawCard : MonoBehaviour
 
     public void OnClick()
     {
-        GameManager.CreateTokens(5);
+        GameManager.CreateTokens(6);
     }
-   
-}
+                                       }

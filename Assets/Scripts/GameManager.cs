@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public GameObject Token;
     public GameObject Canvas;
+
+    private bool _dealt;
     
     // Start is called before the first frame update
     void Start()
@@ -13,6 +15,9 @@ public class GameManager : MonoBehaviour
 
     public void CreateTokens(int count)
     {
+        if (_dealt)
+            return;
+        
         for( int i=0; i<count; i++)
         {
             Canvas = GameObject.Find("Main Canvas");
@@ -20,6 +25,8 @@ public class GameManager : MonoBehaviour
             token.GetComponent<DebugScript>().LogToDebug();
             token.GetComponent<Transform>().SetParent(Canvas.transform, false);
         }
+
+        _dealt = true;
     }
     
     // Update is called once per frame
